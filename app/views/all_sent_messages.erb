@@ -1,0 +1,17 @@
+<h1>All Sent Messages</h1>
+<table>
+<thead>
+<th>Date</th>
+<th>From</th>
+<th>To</th>
+<th>Text</th>
+</thead>
+<% @allmessages.each do |message| %>
+<tr>
+	<td>No Date</td>
+	<td><%= message.from %></td>
+	<td><%= message.to %></td>
+	<td><%= message.body %></td>
+</tr>
+	<% end %>
+</table>

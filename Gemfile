@@ -16,6 +16,8 @@ gem 'activerecord', '~> 3.2.8'
 gem 'rake'
 
 gem 'twilio-ruby'
+gem 'twiliolib'
+gem 'nokogiri'
 
 group :test, :development do
   gem 'faker'

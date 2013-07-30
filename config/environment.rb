@@ -20,6 +20,9 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 
+require 'twiliolib'
+require 'nokogiri'
+
 require 'twilio-ruby'
 
 # Some helper constants for path-centric logic
