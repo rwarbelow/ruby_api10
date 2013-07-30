@@ -15,11 +15,10 @@ gem 'activerecord'
 
 gem 'rake'
 
-gem 'shotgun'
-
 gem 'twilio-ruby'
 
-group :test do
+group :test, :development do
   gem 'faker'
   gem 'rspec'
+  gem 'shotgun'
 end
