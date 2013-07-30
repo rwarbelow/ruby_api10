@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Send a text</h1>
+  <form action="/send_message" method="post">
+    <input type="tel" name="number" placeholder="phone number" pattern="\d{10}" required="true">
+    <textarea name="message" cols="20" rows="8" placeholder="message" required="true" maxlength="160"></textarea>
+    <input type="submit" value="send">
+  </form>
+
+    <h1>Call a number</h1>
+  <form action="/call" method="post">
+    <input type="tel" name="number" placeholder="phone number" pattern="\d{10}" required="true">
+    <input type="submit" value="send">
+  </form>
+</div>
