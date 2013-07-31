@@ -1,7 +1,7 @@
-# get '/' do
-#   # Look in app/views/index.erb
-#   erb :index
-# end
+get '/' do
+  # Look in app/views/index.erb
+  erb :index
+end
 
 post '/send_message' do
   myMessage = Message.new(params[:number], params[:message])
@@ -42,11 +42,11 @@ def get_or_post(path, opts={}, &block)
   post(path, opts, &block)
 end
 
-# Home page and reference
-get '/' do
-  @title = "Home"
-  erb :home
-end
+# # Home page and reference
+# get '/' do
+#   @title = "Home"
+#   erb :home
+# end
 
 # Voice Request URL
 get_or_post '/voice/?' do
