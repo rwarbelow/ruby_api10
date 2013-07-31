@@ -3,47 +3,19 @@ get '/' do
   erb :index
 end
 
+# look at old basic functions
 get '/basic_functions' do
   # Look in app/views/index.erb
   erb :basic_functions
 end
 
-post '/send_message' do
-  myMessage = Message.new(params[:number], params[:message])
-  myMessage.send
-  erb :index
-end
-
-get '/sent_messages' do
-  myMessages = Message.new
-  @allmessages = myMessages.get_sent_messages
-
-  erb :all_sent_messages
-end
-
-get '/received_messages' do
-  myMessages = Message.new
-  @allmessages = myMessages.get_received_messages
-
-  erb :all_received_messages
-end
-
+# to read to caller
 get '/voice_mail' do
   p params
   response = Twilio::TwiML::Response.new do |r|
-    r.Say 'Here is a voice response' \
-          'blah blah blah', :voice => 'woman'
+    r.Say 'Hi Allen! I can write whatever I want this to say', :voice => 'woman'
   end
   response.text
-end
-
-# SMS Request URL
-get '/sms-quickstart' do
-  p params
-  twiml = Twilio::TwiML::Response.new do |r|
-    r.Sms "Changed the response text."
-  end 
-  twiml.text
 end
 
 get '/hello-monkey' do
@@ -53,6 +25,7 @@ get '/hello-monkey' do
     '+14158675311' => 'Virgil',
     '+14158675312' => 'Marcel',
   }
+
   name = people[params['From']] || 'Monkey'
   Twilio::TwiML::Response.new do |r|
     r.Say "Hello #{name}"
@@ -64,7 +37,6 @@ get '/hello-monkey' do
     end
   end.text
 end
- 
  
 get '/hello-monkey/handle-gather' do
   redirect '/hello-monkey' unless ['1', '2'].include?(params['Digits'])

@@ -1,5 +1,60 @@
 <div class="container">
+<a href="/basic_functions">Basic Functions</a>
+  <div class="form_box">  
+    <h2>Create Parent/Guardian Account</h2>
+    <form action="/create_parent" id="create_parent">
+      <input type="text" name="first_name" placeholder="First Name">
+      <input type="text" name="last_name" placeholder="Last Name">
+      <select name="relationship_to_student">
+        <option value="">Relationship to Student</option>
+        <option value="mom">Mom</option>
+        <option value="dad">Dad</option>
+        <option value="grandma">Grandma</option>
+        <option value="grandpa">Grandpa</option>
+        <option value="aunt">Aunt</option>
+        <option value="uncle">Uncle</option>
+        <option value="stepmom">Stepmom</option>
+        <option value="stepdad">Stepdad</option>
+        <option value="sibling">Sibling</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" name="personal_email" placeholder="Email">
+      <input type="tel" pattern='\d{10}' name="cell_phone" placeholder="Cell Phone">
+      <input type="tel" pattern='\d{10}' name="home_phone" placeholder="Home Phone">
+      <input type="submit" value="Create Parent/Guardian Account">
+    </form>
+  </div>
 
-  <a href="/basic_functions">Basic Functions</a>
+  <div class="form_box">  
+    <h2>Create Student Account</h2>
+    <form action="/create_student" id="create_student">
+      <input type="text" name="first_name" placeholder="First Name">
+      <input type="text" name="middle_name" placeholder="Middle Name">
+      <input type="text" name="last_name" placeholder="Last Name">
+      <select name="grade_level">
+        <option value="">Grade Level</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+      <input type="text" name="student_email" placeholder="Email">
+      <input type="tel" pattern='\d{10}' name="cell_phone" placeholder="Cell Phone">
+      <input type="submit" value="Create Student Account">
+    </form>
+  </div>
 
+  <div class="form_box">  
+    <h2>Create Teacher Account</h2>
+    <form action="/create_teacher" id="create_teacher">
+      <input type="text" name="first_name" placeholder="First Name">
+      <input type="text" name="last_name" placeholder="Last Name">
+      <input type="text" name="title" placeholder="Title">
+      <input type="text" name="interact_email" placeholder="Email">
+      <input type="text" name="swot_email" placeholder="Email">
+      <input type="text" name="personal_email" placeholder="Email">
+      <input type="tel" pattern='\d{10}' name="cell_phone" placeholder="Cell Phone">
+      <input type="tel" pattern='\d{10}' name="other_phone" placeholder="Other Phone">
+      <input type="submit" value="Create Teacher Account">
+    </form>
+  </div>
 </div>

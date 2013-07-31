@@ -7,6 +7,7 @@ class CreateParents < ActiveRecord::Migration
   		t.string :personal_email
       t.string :cell_phone
       t.string :home_phone
+      t.string :preferred_language
 
   		t.timestamps
   	end
