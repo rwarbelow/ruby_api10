@@ -60,11 +60,10 @@ end
 # SMS Request URL
 get '/sms-quickstart' do
   p params
-  # p "FIRST ONE"
-  # twiml = Twilio::TwiML::Response.new do |r|
-  #   r.Sms "Hey Monkey. Thanks for the message!"
-  # end 
-  # twiml.text
+  twiml = Twilio::TwiML::Response.new do |r|
+    r.Sms "Texted from #{params["From"]}, with #{params["Body"]}. "
+  end 
+  twiml.text
 end
 
 post '/rachel' do 
