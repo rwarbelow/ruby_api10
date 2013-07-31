@@ -24,9 +24,10 @@ get '/received_messages' do
 end
 
 get '/voice_mail' do
+  p params
   response = Twilio::TwiML::Response.new do |r|
-    r.Say 'Congratulations! You\'ve successfully deployed ' \
-          'the Twilio HackPack for Heroku and Sinatra!', :voice => 'woman'
+    r.Say 'Here is a voice response' \
+          'blah blah blah', :voice => 'woman'
   end
   response.text
 end
