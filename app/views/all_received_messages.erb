@@ -8,7 +8,7 @@
 </thead>
 <% @allmessages.each do |message| %>
 <tr>
-	<td>No Date</td>
+	<td>message.direction</td>
 	<td><%= message.from %></td>
 	<td><%= message.to %></td>
 	<td><%= message.body %></td>

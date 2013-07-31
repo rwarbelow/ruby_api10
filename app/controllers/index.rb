@@ -58,12 +58,11 @@ get_or_post '/voice/?' do
 end
 
 # SMS Request URL
-get_or_post '/sms/?' do
-  response = Twilio::TwiML::Response.new do |r|
-    r.Sms 'Congratulations! You\'ve successfully deployed ' \
-          'the Twilio HackPack for Heroku and Sinatra!'
+get '/sms-quickstart' do
+  twiml = Twilio::TwiML::Response.new do |r|
+    r.Sms "Hey Monkey. Thanks for the message!"
   end
-  response.text
+  twiml.text
 end
 
 # Twilio Client URL

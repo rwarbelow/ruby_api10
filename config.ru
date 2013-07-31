@@ -14,3 +14,10 @@ end
 
 run Sinatra::Application
 
+# update an exisiting heroku repo that's been renamed
+# git remote set-url heroku git@heroku.com:intense-waters-8288.git
+# git fetch heroku
+# git push heroku master
+
+# i created a new app on heroku's website and want to push to the repo
+# git remote add heroku git@heroku.com:intense-waters-8288.git
