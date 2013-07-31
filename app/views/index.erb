@@ -1,33 +1,40 @@
 <div class="container">
+
+  <% if @errors %>
+  <% @errors.each do |error| %>
+  <%= error %>
+  <% end %>
+  <% end %>
+
 <a href="/basic_functions">Basic Functions</a>
   <div class="form_box">  
     <h2>Create Parent/Guardian Account</h2>
-    <form action="/create_parent" id="create_parent">
-      <input type="text" name="first_name" placeholder="First Name">
-      <input type="text" name="last_name" placeholder="Last Name">
+    <form action="/create_parent" name="parent"method="POST" id="create_parent">
+      <input type="text" name="parent[first_name]" placeholder="First Name">
+      <input type="text" name="parent[last_name]" placeholder="Last Name">
       <select name="relationship_to_student">
         <option value="">Relationship to Student</option>
-        <option value="mom">Mom</option>
-        <option value="dad">Dad</option>
-        <option value="grandma">Grandma</option>
-        <option value="grandpa">Grandpa</option>
-        <option value="aunt">Aunt</option>
-        <option value="uncle">Uncle</option>
-        <option value="stepmom">Stepmom</option>
-        <option value="stepdad">Stepdad</option>
-        <option value="sibling">Sibling</option>
-        <option value="other">Other</option>
+        <option value="parent[mom]">Mom</option>
+        <option value="parent[dad]">Dad</option>
+        <option value="parent[grandma]">Grandma</option>
+        <option value="parent[grandpa]">Grandpa</option>
+        <option value="parent[aunt]">Aunt</option>
+        <option value="parent[uncle]">Uncle</option>
+        <option value="parent[stepmom]">Stepmom</option>
+        <option value="parent[stepdad]">Stepdad</option>
+        <option value="parent[sibling]">Sibling</option>
+        <option value="parent[other]">Other</option>
       </select>
-      <input type="text" name="personal_email" placeholder="Email">
-      <input type="tel" pattern='\d{10}' name="cell_phone" placeholder="Cell Phone">
-      <input type="tel" pattern='\d{10}' name="home_phone" placeholder="Home Phone">
+      <input type="text" name="parent[personal_email]" placeholder="Email">
+      <input type="tel" pattern='\d{10}' name="parent[cell_phone]" placeholder="Cell Phone">
+      <input type="tel" pattern='\d{10}' name="parent[home_phone]" placeholder="Home Phone">
       <input type="submit" value="Create Parent/Guardian Account">
     </form>
   </div>
 
   <div class="form_box">  
     <h2>Create Student Account</h2>
-    <form action="/create_student" id="create_student">
+    <form action="/create_student" method="POST" id="create_student">
       <input type="text" name="first_name" placeholder="First Name">
       <input type="text" name="middle_name" placeholder="Middle Name">
       <input type="text" name="last_name" placeholder="Last Name">
@@ -45,7 +52,7 @@
 
   <div class="form_box">  
     <h2>Create Teacher Account</h2>
-    <form action="/create_teacher" id="create_teacher">
+    <form action="/create_teacher" method="POST" id="create_teacher">
       <input type="text" name="first_name" placeholder="First Name">
       <input type="text" name="last_name" placeholder="Last Name">
       <input type="text" name="title" placeholder="Title">
