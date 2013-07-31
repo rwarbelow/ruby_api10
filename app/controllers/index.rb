@@ -49,7 +49,7 @@ end
 # end
 
 # Voice Request URL
-get_or_post '/voice/?' do
+get '/voice_mail/?' do
   response = Twilio::TwiML::Response.new do |r|
     r.Say 'Congratulations! You\'ve successfully deployed ' \
           'the Twilio HackPack for Heroku and Sinatra!', :voice => 'woman'
@@ -66,24 +66,3 @@ get '/sms-quickstart' do
   twiml.text
 end
 
-post '/rachel' do 
-  p "YOLO"
-  "response"
-end
-
-# Twilio Client URL
-get_or_post '/client/?' do
-  TWILIO_ACCOUNT_SID = "AC153ccfc825f37dc1e598b5e65b1b774c"
-  TWILIO_AUTH_TOKEN = "3090f0831d0ee9fc0191f4daaf8bb232"
-  TWILIO_APP_SID = "APfbf12f8d84e510bdd82aa9a4f5f974aa"
-  
-  if !(TWILIO_ACCOUNT_SID && TWILIO_AUTH_TOKEN && TWILIO_APP_SID)
-    return "Please run configure.rb before trying to do this!"
-  end
-  @title = "Twilio Client"
-  capability = Twilio::Util::Capability.new(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-  capability.allow_client_outgoing(TWILIO_APP_SID)
-  capability.allow_client_incoming('twilioRubyHackpack')
-  @token = capability.generate
-  erb :client
-end
