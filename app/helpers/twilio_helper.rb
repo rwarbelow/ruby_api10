@@ -12,25 +12,25 @@ class Message
 	end
 
   def call
-    @call = @account.calls.create({:from => '+14159341234', :to => '+18004567890', :url => 'http://example.com/call-handler'})
+    @call = @client.account.calls.create({:from => @my_number, :to => "+1#{@number}"})
   end
 
   def get_received_messages
     @allmessages = @client.account.sms.messages.list
-    @sent_messages = []
+    @received_messages = []
     @allmessages.each do |message|
-      @sent_messages << message if message.to == @my_number
+      @received_messages << message if message.to == @my_number
     end
-    @sent_messages
+    @received_messages
   end
 
   def get_sent_messages
     @allmessages = @client.account.sms.messages.list
-    @received_messages = []
+    @sent_messages = []
     @allmessages.each do |message|
-      @received_messages << message if message.from == @my_number
+      @sent_messages << message if message.from == @my_number
     end
-    @received_messages
+    @sent_messages
   end
 
 end
