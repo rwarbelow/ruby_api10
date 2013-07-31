@@ -3,6 +3,11 @@ get '/' do
   erb :index
 end
 
+get '/basic_functions' do
+  # Look in app/views/index.erb
+  erb :basic_functions
+end
+
 post '/send_message' do
   myMessage = Message.new(params[:number], params[:message])
   myMessage.send
