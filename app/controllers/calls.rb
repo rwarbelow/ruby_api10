@@ -25,6 +25,7 @@ get '/hello-monkey/handle-gather' do
   elsif params['Digits'] == '3'
     redirect "http://twimlets.com/voicemail?Email=rachelwarbelow%40gmail.com&Message=Record%20your%20message%20after%20the%20tone.%20&Transcribe=true&"
   end
+  response.text
 end
 
 
