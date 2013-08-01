@@ -14,7 +14,8 @@ get '/parent_profile/:parent_id' do
 	erb :parent_profile
 end
 
-
-# 	if params[:parent][:student_id]
-# 		student = Student.find(params[:parent][:student_id])
-# @parent.students << student
+post '/add_student/:parent_id' do
+	@parent = Parent.find(params[:parent_id])
+	student = Student.find(params[:parent][:student_id])
+	@parent.students << student
+end
