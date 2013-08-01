@@ -11,9 +11,9 @@ get '/hello-monkey' do
     r.Say "Hello #{@caller.first_name}"
     r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
     r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do |g|
-      g.Say 'To speak to a real monkey, press 1.'
-      g.Say 'Press 2 to record your own monkey howl.'
-      g.Say 'Press any other key to start over.'
+      g.Say 'You can push some keys.'
+      g.Say 'Like one or two. Try it out.'
+      g.Say 'But you can also press any other key to start over.'
     end
   end.text
 end
@@ -23,11 +23,11 @@ get '/hello-monkey/handle-gather' do
   if params['Digits'] == '1'
     response = Twilio::TwiML::Response.new do |r|
       r.Dial '+13105551212'
-      r.Say 'The call failed or the remote party hung up. Goodbye.'
+      r.Say 'You pushed one. Yay. And I do not know how to program anything else. Sorry.'
     end
   elsif params['Digits'] == '2'
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Record your monkey howl after the tone.'
+      r.Say 'Record something. I do not think I will be able to receive it because I am not a good programmer yet.'
       r.Record :maxLength => '30', :action => '/hello-monkey/handle-record', :method => 'get'
     end
   end
@@ -37,7 +37,7 @@ end
  
 get '/hello-monkey/handle-record' do
   Twilio::TwiML::Response.new do |r|
-    r.Say 'Listen to your monkey howl.'
+    r.Say 'Listen to your message.'
     r.Play params['RecordingUrl']
     r.Say 'Goodbye.'
   end.text
