@@ -1,9 +1,14 @@
 get '/hello-monkey' do
-  Parent.find_by_id(params['From']) ? @caller = Parent.find_by_id(params['From']) : @caller = Student.find_by_id(params['From'])
+  people = {
+    '+18123227607' => 'Curious George',
+    '+14158675310' => 'Boots',
+    '+14158675311' => 'Virgil',
+    '+14158675312' => 'Marcel',
+  }
 
-  # name = people[params['From']] || 'Monkey'
+  name = people[params['From']] || 'Monkey'
   Twilio::TwiML::Response.new do |r|
-    r.Say "Hello #{@caller.first_name}"
+    r.Say "Hello #{name}"
     r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
     r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do |g|
       g.Say 'To speak to a real monkey, press 1.'
