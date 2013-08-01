@@ -1,0 +1,32 @@
+<h1>Welcome, <%= @teacher.first_name %> <%= @teacher.last_name %>!</h1>
+
+<div class="form_box">
+	<h2>Create a New Class</h2>
+	<form action="/teachers/add_class/<%= @teacher.id %>" method="post">
+	  <input type="text" name="title" placeholder="Class Title">
+	  <input type="text" name="class name" placeholder="Grade Level">
+	  <input type="submit" value="Add Student">
+	</form>
+</div>
+
+<div class="form_box">
+	<h2>Your Classes</h2>
+	<% if @teacher.has_classes? %>
+		<p>You have no classes currently listed</p>
+	<% else %>
+		<table>
+			<thead>
+				<th>ID Number</th>
+				<th>Student Name</th>
+			</thead>
+			<% if @teacher.students %>
+				<% @teacher.students.each do |student| %>
+				<tr>
+					<td><%= student.id %></td>
+					<td><a href="/students/<%= student.id %>"><%= student.first_name %> <%= student.last_name %></td>
+				</tr>
+				<% end %>
+			<% end %>
+		</table>
+		<% end %>
+</div>

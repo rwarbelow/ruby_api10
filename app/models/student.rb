@@ -4,5 +4,7 @@ class Student < ActiveRecord::Base
   has_many :parents, through: :students_parents
   has_many :students_teachers
   has_many :teachers, through: :students_teachers
+  has_many :students_attendances
+  has_many :attendances, through: :students_attendances
 
 end

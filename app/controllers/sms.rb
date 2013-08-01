@@ -9,14 +9,14 @@ end
 get '/sent_messages' do
   myMessages = Message.new
   @allmessages = myMessages.get_sent_messages
-  erb :all_sent_messages
+  erb :'messages/all_sent_messages'
 end
 
 # look at old received messages
 get '/received_messages' do
   myMessages = Message.new
   @allmessages = myMessages.get_received_messages
-  erb :all_received_messages
+  erb :'messages/all_received_messages'
 end
 
 # to respond to text

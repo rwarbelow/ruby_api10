@@ -1,4 +1,4 @@
-<div class="container">
+
 
   <% if @errors %>
   <% @errors.each do |error| %>
@@ -9,7 +9,7 @@
 <a href="/basic_functions">Basic Functions</a>
   <div class="form_box">  
     <h2>Create Parent/Guardian Account</h2>
-    <form action="/create_parent" name="parent"method="POST" id="create_parent">
+    <form action="/parents/new_parent" name="parent"method="POST" id="create_parent">
       <input type="text" name="parent[first_name]" placeholder="First Name">
       <input type="text" name="parent[last_name]" placeholder="Last Name">
       <select name="parent[relationship_to_student]">
@@ -64,4 +64,3 @@
       <input type="submit" value="Create Teacher Account">
     </form>
   </div>
-</div>

@@ -1,0 +1,20 @@
+<h1>Welcome, <%= @student.first_name %> <%= @student.last_name %>!</h1>
+
+<div class="form_box">
+	<h2>Linked Parent/Guardian Accounts</h2>
+		<table>
+		<thead>
+			<th>Parent/Guardian Name</th>
+			<th>Primary Phone Number</th>
+		</thead>
+		<% if @student.parents %>
+			<% @student.parents.each do |parent| %>
+			<tr>
+				<td><%= parent.first_name %> <%= parent.last_name %></td>
+				<td><%= parent.cell_phone %></td>
+			</tr>
+			<% end %>
+		<% end %>
+	</table>
+</div>
+

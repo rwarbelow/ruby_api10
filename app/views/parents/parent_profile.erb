@@ -1,8 +1,28 @@
 <h1>Welcome, <%= @parent.first_name %> <%= @parent.last_name %>!</h1>
 
 <div class="form_box">
-	<form action="/add_student/<%= @parent.id %>" method="post">
+	<h2>Add a student to this account</h2>
+	<p>Enter your student's ID number to link accounts</p>
+	<form action="/parents/add_student/<%= @parent.id %>" method="post">
 	  <input type="text" name="parent[student_id]" placeholder="Student ID Number">
 	  <input type="submit" value="Add Student">
 	</form>
+</div>
+
+<div class="form_box">
+	<h2>Students linked to this account</h2>
+	<table>
+		<thead>
+			<th>ID Number</th>
+			<th>Student Name</th>
+		</thead>
+		<% if @parent.students %>
+			<% @parent.students.each do |student| %>
+			<tr>
+				<td><%= student.id %></td>
+				<td><a href="/students/<%= student.id %>"><%= student.first_name %> <%= student.last_name %></td>
+			</tr>
+			<% end %>
+		<% end %>
+	</table>
 </div>
