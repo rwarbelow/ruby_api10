@@ -12,7 +12,7 @@ class Message
 	end
 
   def call
-    @call = @client.account.calls.create({:from => @my_number, :to => "+1#{@number}"}, :url =>)
+    @call = @client.account.calls.create({:from => @my_number, :to => "+1#{@number}"})
   end
 
   def get_received_messages
