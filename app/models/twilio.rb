@@ -1,4 +1,4 @@
-class Twilio
+class Twil
 
 	def self.incoming_call
 		@caller = Parent.find_by_cell_phone([params['From']]) || 'Guest'

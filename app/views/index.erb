@@ -12,18 +12,18 @@
     <form action="/create_parent" name="parent"method="POST" id="create_parent">
       <input type="text" name="parent[first_name]" placeholder="First Name">
       <input type="text" name="parent[last_name]" placeholder="Last Name">
-      <select name="relationship_to_student">
+      <select name="parent[relationship_to_student]">
         <option value="">Relationship to Student</option>
-        <option value="parent[mom]">Mom</option>
-        <option value="parent[dad]">Dad</option>
-        <option value="parent[grandma]">Grandma</option>
-        <option value="parent[grandpa]">Grandpa</option>
-        <option value="parent[aunt]">Aunt</option>
-        <option value="parent[uncle]">Uncle</option>
-        <option value="parent[stepmom]">Stepmom</option>
-        <option value="parent[stepdad]">Stepdad</option>
-        <option value="parent[sibling]">Sibling</option>
-        <option value="parent[other]">Other</option>
+        <option value="Mom" >Mom</option>
+        <option value="Dad">Dad</option>
+        <option value="Grandma">Grandma</option>
+        <option value="Grandpa">Grandpa</option>
+        <option value="Aunt">Aunt</option>
+        <option value="Uncle">Uncle</option>
+        <option value="Stepmom">Stepmom</option>
+        <option value="Stepdad">Stepdad</option>
+        <option value="Sibling">Sibling</option>
+        <option value="Other">Other</option>
       </select>
       <input type="text" name="parent[personal_email]" placeholder="Email">
       <input type="text" name="parent[cell_phone]" placeholder="Cell Phone">
