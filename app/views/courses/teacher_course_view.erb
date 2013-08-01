@@ -1,3 +1,10 @@
 <h1>Course: <%= @course.title %></h1>
 <h3>Teacher: <%= @course.teacher.last_name %></h3>
 
+<div class="form_box">
+	<% if @course.has_students? %>
+	<p>You have students!</p>
+	<% else %>
+	<p>You have no students :(</p>
+	<% end %>
+</div>
