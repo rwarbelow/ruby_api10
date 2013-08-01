@@ -7,7 +7,7 @@ get '/hello-monkey' do
       g.Say 'Push a key. One will read you a little message. Two will let you record yourself so you can listen to yourself talk. Three will let you record a voicemail that I will receive.'
       g.Say 'But you can also press any other key to start over.'
     end
-  end
+  end.text
 end
  
 
