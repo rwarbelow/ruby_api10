@@ -22,8 +22,23 @@ end
 # to respond to text
 get '/sms-quickstart' do
   p params
-  twiml = Twilio::TwiML::Response.new do |r|
-    r.Sms "Changed the response text."
-  end 
+  if params[:body] == "grades"
+    twiml = Twilio::TwiML::Response.new do |r|
+      r.Sms "You have requested grades."
+    end
+  elsif params[:body] == "attendance"
+    twiml = Twilio::TwiML::Response.new do |r|
+      r.Sms "You have requested attendance."
+    end 
+  elsif params[:body] == "behavior"
+    twiml = Twilio::TwiML::Response.new do |r|
+      r.Sms "You have requested behavior."
+    end 
+  else
+    twiml = Twilio::TwiML::Response.new do |r|
+      r.Sms "You have requested something else."
+    end 
+  end
+    
   twiml.text
 end
