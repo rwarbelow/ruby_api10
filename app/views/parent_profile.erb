@@ -1,8 +1,0 @@
-<h1>Welcome, <%= @parent.first_name %> <%= @parent.last_name %>!</h1>
-
-<div class="form_box">
-	<form action="/add_student/<%= @parent.id %>" method="post">
-	  <input type="text" name="parent[student_id]" placeholder="Student ID Number">
-	  <input type="submit" value="Add Student">
-	</form>
-</div>
