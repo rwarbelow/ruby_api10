@@ -11,7 +11,7 @@ end
 
 get '/parent_profile/:parent_id' do
 	@parent = Parent.find(params[:parent_id])
-	erb :
+	erb :parent_profile
 end
 
 
