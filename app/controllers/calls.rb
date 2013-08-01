@@ -6,7 +6,7 @@ get '/hello-monkey' do
     '+14158675312' => 'Marcel',
   }
 
-  name = Parent.find_by_phone_number([params['From']]) || 'Guest'
+  name = Parent.find_by_cell_phone([params['From']]) || 'Guest'
   Twilio::TwiML::Response.new do |r|
     r.Say "Hello #{name}"
     r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
