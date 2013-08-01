@@ -9,6 +9,12 @@ post '/create_parent' do
 end
 
 
+get '/parent_profile/:parent_id' do
+	@parent = Parent.find(params[:parent_id])
+	erb :
+end
+
+
 # 	if params[:parent][:student_id]
 # 		student = Student.find(params[:parent][:student_id])
 # @parent.students << student
