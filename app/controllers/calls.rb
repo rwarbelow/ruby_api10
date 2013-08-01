@@ -1,11 +1,7 @@
 get '/hello-monkey' do
-  if Parent.find_by_id(params['From'])
-    @caller = Parent.find_by_id(params['From'])
-  else 
-    @caller = Student.find_by_id(params['From'])
-  end
+  Parent.find_by_id(params['From']) ? @caller = Parent.find_by_id(params['From']) : @caller = Student.find_by_id(params['From'])
 
-  name = people[params['From']] || 'Monkey'
+  # name = people[params['From']] || 'Monkey'
   Twilio::TwiML::Response.new do |r|
     r.Say "Hello #{@caller.first_name}"
     r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
