@@ -21,26 +21,23 @@ end
 
 # to respond to text
 get '/sms-quickstart' do
-  p params
-  p params["Body"]
-  p params[:Body]
+  @caller = Parent.find_by_cell_phone(params["From"])
   if params["Body"] == "grades"
     twiml = Twilio::TwiML::Response.new do |r|
-      r.Sms "You have requested grades."
+      r.Sms "You have requested grades for #{@caller.first_name} #{@caller.last_name}."
     end
   elsif params["Body"] == "attendance"
     twiml = Twilio::TwiML::Response.new do |r|
-      r.Sms "You have requested attendance."
+      r.Sms "You have requested attendance for #{@caller.first_name} #{@caller.last_name}."
     end 
   elsif params["Body"] == "behavior"
     twiml = Twilio::TwiML::Response.new do |r|
-      r.Sms "You have requested behavior."
+      r.Sms "You have requested behavior for #{@caller.first_name} #{@caller.last_name}."
     end 
   else
     twiml = Twilio::TwiML::Response.new do |r|
-      r.Sms "You have requested something else."
+      r.Sms "You have requested something else for #{@caller.first_name} #{@caller.last_name}."
     end 
   end
-    
   twiml.text
 end
