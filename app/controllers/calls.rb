@@ -20,7 +20,7 @@ get '/hello-monkey/handle-gather' do
     end
   elsif params['Digits'] == '2'
     response = Twilio::TwiML::Response.new do |r|
-      r.Say 'Record something. I do not think I will be able to receive it because I am not a good programmer yet.'
+      r.Say 'Record something. I do not think I will be able to receive it because I am not a good programmer yet. Press pound when you are finished. Leave me a really good message in case I can get it. Ok?'
       r.Record :maxLength => '30', :action => '/hello-monkey/handle-record', :method => 'get'
     end
   end
