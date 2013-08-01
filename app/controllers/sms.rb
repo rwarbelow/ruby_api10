@@ -22,8 +22,8 @@ end
 # to respond to text
 get '/sms-quickstart' do
   p params
-  p params["body"]
-  p params[:body]
+  p params["Body"]
+  p params[:Body]
   if params["body"] == "grades"
     twiml = Twilio::TwiML::Response.new do |r|
       r.Sms "You have requested grades."
