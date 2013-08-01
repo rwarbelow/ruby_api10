@@ -1,10 +1,9 @@
 class Teacher < ActiveRecord::Base
   # Remember to create a migration!
-  has_many :students_teachers
-  has_many :students, through: :students_teachers
   has_many :courses
+  has_many :students, through: 
 
-  def has_classes?
+  def has_courses?
   	if self.courses.length > 0
   		true
   	else
@@ -13,3 +12,4 @@ class Teacher < ActiveRecord::Base
   end
 
 end
+

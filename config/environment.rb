@@ -21,7 +21,7 @@ require "sinatra/reloader" if development?
 require 'erb'
 
 require 'twiliolib'
-require 'nokogiri'
+require 'bcrypt'
 
 require 'twilio-ruby'
 

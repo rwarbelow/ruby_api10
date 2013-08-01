@@ -17,7 +17,7 @@ gem 'rake'
 
 gem 'twilio-ruby'
 gem 'twiliolib'
-gem 'nokogiri'
+gem 'bcrypt-ruby'
 
 group :test, :development do
   gem 'faker'
